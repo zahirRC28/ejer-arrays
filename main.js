@@ -9,26 +9,25 @@ console.log(frutas[frutas.length-1]);
 //Ejercicio 3: Agregar un elemento al inicio del array
 let numeros = [4, 9, 2, 7, 1];
 console.log(numeros);
-let mas = numeros.unshift(75);
+numeros.unshift(75);
 console.log(numeros);
 
 //Ejercicio 4: Eliminar el primer elemento del array
 let nombres = ["Ana", "Luis", "Marta", "Carlos", "Sofía"];
 console.log(nombres);
-let eli = nombres.shift();
-console.log(eli);
+nombres.shift();
 console.log(nombres)
 
 //Ejercicio 5: Agregar un elemento al final del array
 let colores = ["rojo", "azul", "verde", "amarillo", "morado"];
 console.log(colores);
-let masfin = colores.push("plata");
+colores.push("plata");
 console.log(colores);
 
 //Ejercicio 6: Eliminar el último elemento del array
 let ciudades = ["Madrid", "Lisboa", "París", "Roma", "Berlín"];
 console.log(ciudades);
-let menos = ciudades.pop();
+ciudades.pop();
 console.log(ciudades);
 
 //Ejercicio 7: Combinar dos arrays
@@ -47,34 +46,42 @@ console.log(años);
 
 //Ejercicio 9: Buscar el índice de un elemento
 let marcas = ["Nike", "Adidas", "Puma", "Reebok", "Converse"];
-marcas.forEach(function(valor, index){
+/* marcas.forEach(function(valor, index){
     console.log(valor + ' ' + index)
-});
+}); */
+//investigar para hacer con el indexOF y el findIndex---------------------------------
+console.log(marcas.indexOf("Adidas"))
 
 //Ejercicio 10: Reemplazar un elemento en un array
 let asignaturas = ["Matemáticas", "Historia", "Lengua", "Inglés", "Física"];
 console.log(asignaturas);
 asignaturas[1] = 3;
 console.log(asignaturas);
+//Se puede hacer usando Splice---------------------------------
 
 //Ejercicio 11: Sumar todos los elementos del array
 let puntuaciones = [45, 67, 89, 34, 22, 90, 76];
-let totalSum = 0;
-for(var i=0; i<puntuaciones.length; i++){
+//let totalSum = 0;
+/*for(var i=0; i<puntuaciones.length; i++){
     totalSum += puntuaciones[i]; 
-}
+}*/
+// en la acumuladora es donde los numeros se van juntando y num es lo que recorre cada elemento del array y el 1 del final es que lo inicializa el acumulador
+let totalSum = puntuaciones.reduce(function (acumulador, num) {
+  return acumulador + num;
+}, 1);
+//tambien se puede hacer con un acumulador
 console.log(totalSum);
 
 //Ejercicio 12: Multiplicar todos los elementos del array
-let ventas = [12, 9, 4, 8, 5];
 
-let totalMul = ventas.reduce(function (acumulador, num) {
-  return acumulador * num;
-}, 1);
-console.log(totalMul);
+let ventas = [12, 9, 4, 8, 5];
+let Multipli = ventas.map(function (num) {
+  return num * 4;
+});
+console.log(Multipli);
 
 /*
-Como lo habia hecho
+Como lo habia hecho Esta mal
 ---------------
 let totalMul = 1;
 for(var i=0; i<ventas.length; i++){
